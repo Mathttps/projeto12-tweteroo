@@ -11,12 +11,12 @@ const tweets = []
 
 
 app.post("/sign-up", (req, res) => {
-    const userData = {
+    const user = {
         username: req.body.username,
         avatar: req.body.avatar
     }
 
-    users.push(userData)
+    users.push(user)
     res.send("OK")
 })
 
@@ -44,13 +44,15 @@ app.post("/tweets", (req, res) => {
 
 app.get("/tweets", (req, res) => {
     const post = tweets.map((m) => ({
-        username: (m.username),
-        tweet: (m.tweet),
-        avatar: (users.find((i) => i.username === m.username)).avatar,
+        username: m.username,
+        tweet: m.tweet,
+        avatar: users.find.avatar,
     }))
 
     res.send(post.slice(-10).reverse())
 })
+
+console.log(users)
 
 app.listen(5000, () => {
     console.log("Rodando na porta: 5000")
